@@ -10,7 +10,7 @@ int User::getId() const {
     return id;
 }
 
-void User::show(){
+void User::show(){  
     std::cout<< "id: " <<id;
 }
 
@@ -22,3 +22,7 @@ std::string User::getPassword() const {
     return password;
 }
 
+void User::setUsername(const std::string& username)  {
+    this->username = username;
+
+}

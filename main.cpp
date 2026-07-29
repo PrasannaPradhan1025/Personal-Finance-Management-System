@@ -4,9 +4,10 @@
 using namespace std;
 
 int main() {
-    
-    User user(10,"Prasanna","pasdfksd");
-  
+    //just for testing 
+    User u;
+    u.setUsername("Username");
+    string x = u.getUsername();
 
     while (true) {
         cout << "\n==== Finance Manager ====\n";
@@ -19,8 +20,8 @@ int main() {
 
         switch (choice) {
         case 1:
-           
-            user.show();
+            //just testing the setUsername and getUsername Function
+            cout <<x <<endl;
            
             break;
 

@@ -15,6 +15,9 @@ public:
     int getId() const;
     std::string getUsername() const;
     std::string getPassword() const;
+    void setUsername(const std::string& username);
+    
+
 
     void show();
 };
