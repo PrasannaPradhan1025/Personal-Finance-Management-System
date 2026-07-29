@@ -6,8 +6,8 @@ using namespace std;
 int main() {
     //just for testing 
     User u;
-    u.setUsername("Username");
-    string x = u.getUsername();
+    u.setPassword("123123");
+    string x = u.getPassword();
 
     while (true) {
         cout << "\n==== Finance Manager ====\n";
@@ -20,7 +20,7 @@ int main() {
 
         switch (choice) {
         case 1:
-            //just testing the setUsername and getUsername Function
+            //just testing the setUsername and getUsername
             cout <<x <<endl;
            
             break;

@@ -26,3 +26,8 @@ void User::setUsername(const std::string& username)  {
     this->username = username;
 
 }
+
+void User::setPassword(const std::string& password)  {
+    this->password = password;
+
+}
