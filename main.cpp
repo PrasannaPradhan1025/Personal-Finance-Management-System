@@ -1,5 +1,6 @@
 #include <iostream>
 #include "User.h"
+#include "UserManager.h"
 
 using namespace std;
 
@@ -8,6 +9,11 @@ int main() {
     User u;
     u.setPassword("123123");
     string x = u.getPassword();
+
+
+    //testing the UserManager class
+    UserManager U("Users.txt");
+    U.display();
 
     while (true) {
         cout << "\n==== Finance Manager ====\n";
