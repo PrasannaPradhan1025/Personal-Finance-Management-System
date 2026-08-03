@@ -2,12 +2,14 @@
 #include <iostream>
 #include <string>
 
-UserManager::UserManager(const std::string& filename) : filename(filename) {
-    
+UserManager::UserManager(const std::string &filename) : filename(filename)
+{
+
     loadUsers();
 }
 
-UserManager::~UserManager() {
+UserManager::~UserManager()
+{
 }
 
 #include <iostream>
@@ -20,7 +22,7 @@ void UserManager::display()
         return;
     }
 
-    for (const User& user : users)
+    for (const User &user : users)
     {
         std::cout << "ID: " << user.getId() << '\n';
         std::cout << "Username: " << user.getUsername() << '\n';
@@ -43,12 +45,51 @@ void UserManager::loadUsers()
     std::string username;
     std::string password;
 
-    while (file >>id >> username >> password)
+    while (file >> id >> username >> password)
     {
-        users.push_back(User(id,username, password));
+        users.push_back(User(id, username, password));
     }
 
     file.close();
 }
+void UserManager::saveUsers()
+{
+    std::ofstream file(filename);
 
+    if (!file.is_open())
+    {
+        std::cout << "Unable to save users.\n";
+        return;
+    }
 
+    for (const User &user : users)
+    {
+        file << user.getId() << " "
+             << user.getUsername() << " "
+             << user.getPassword() << std::endl;
+    }
+
+    file.close();
+}
+void UserManager::addUser(const std::string &username,
+                          const std::string &password)
+{
+    int id;
+
+    if (users.empty())
+    {
+        id = 1;
+    }
+    else
+    {
+        id = users.back().getId() + 1;
+    }
+
+    User newUser(id, username, password);
+
+    users.push_back(newUser);
+
+    saveUsers();
+
+    std::cout << "User added successfully!\n";
+}
