@@ -52,25 +52,6 @@ void UserManager::loadUsers()
 
     file.close();
 }
-void UserManager::saveUsers()
-{
-    std::ofstream file(filename);
-
-    if (!file.is_open())
-    {
-        std::cout << "Unable to save users.\n";
-        return;
-    }
-
-    for (const User &user : users)
-    {
-        file << user.getId() << " "
-             << user.getUsername() << " "
-             << user.getPassword() << std::endl;
-    }
-
-    file.close();
-}
 void UserManager::addUser(const std::string &username,
                           const std::string &password)
 {
@@ -92,4 +73,23 @@ void UserManager::addUser(const std::string &username,
     saveUsers();
 
     std::cout << "User added successfully!\n";
+}
+void UserManager::saveUsers()
+{
+    std::ofstream file(filename);
+
+    if (!file.is_open())
+    {
+        std::cout << "Unable to save users.\n";
+        return;
+    }
+
+    for (const User &user : users)
+    {
+        file << user.getId() << " "
+             << user.getUsername() << " "
+             << user.getPassword() << std::endl;
+    }
+
+    file.close();
 }
