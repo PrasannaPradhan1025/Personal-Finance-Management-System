@@ -19,7 +19,8 @@ int main() {
         cout << "\n==== Finance Manager ====\n";
         cout << "1. Login\n";
         cout << "2. Sign Up\n";
-        cout << "3. Exit\n";
+        cout << "3. Search User\n";
+        cout << "4. Exit\n";
 
         int choice;
         cin >> choice;
@@ -36,6 +37,33 @@ int main() {
             break;
 
         case 3:
+        //testing search algorithm
+        {
+            string key;
+            cout << "Enter username: ";
+            cin >> key;
+
+            vector<User> result = U.searchUsers(key);
+
+            if (result.empty())
+            {
+                cout << "No users found.\n";
+            }
+            else
+            {
+                cout << "\nMatching Users:\n";
+
+                for (const auto& user : result)
+                {
+                    cout << user.getId() << " "
+                        << user.getUsername() << " "<< endl;
+                }
+            }
+
+            break;
+        }
+
+        case 4:
             return 0;
 
         default:
