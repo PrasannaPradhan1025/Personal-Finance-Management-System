@@ -17,6 +17,7 @@ public:
     void display();
     void loadUsers();
     void saveUsers();
-    void addUser(const std::string &username, const std::string &password);
-    std::string findUser(const std::string &username);
+    void addUser(const std::string& username, const std::string& password);
+    std::string findUser(const std::string& username);
+    std::vector<User> searchUsers(const std::string& keyword, int limit = 5);//function rakheko
 };
