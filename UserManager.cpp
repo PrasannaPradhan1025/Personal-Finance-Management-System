@@ -2,12 +2,14 @@
 #include <iostream>
 #include <string>
 
-UserManager::UserManager(const std::string& filename) : filename(filename) {
-    
+UserManager::UserManager(const std::string &filename) : filename(filename)
+{
+
     loadUsers();
 }
 
-UserManager::~UserManager() {
+UserManager::~UserManager()
+{
 }
 
 #include <iostream>
@@ -20,7 +22,7 @@ void UserManager::display()
         return;
     }
 
-    for (const User& user : users)
+    for (const User &user : users)
     {
         std::cout << "ID: " << user.getId() << '\n';
         std::cout << "Username: " << user.getUsername() << '\n';
@@ -43,31 +45,51 @@ void UserManager::loadUsers()
     std::string username;
     std::string password;
 
-    while (file >>id >> username >> password)
+    while (file >> id >> username >> password)
     {
-        users.push_back(User(id,username, password));
+        users.push_back(User(id, username, password));
     }
 
     file.close();
 }
-//like top 5 return garxa if incomplete username input garei also name change garei
-std::vector<User> UserManager::searchUsers(const std::string& keyword, int limit)
+void UserManager::addUser(const std::string &username,
+                          const std::string &password)
 {
-    std::vector<User> results;
+    int id;
 
-    for (const auto& user : users)
+    if (users.empty())
     {
-        //inbuilt nai use garei this is case sensitive
-        if (user.getUsername().find(keyword) != std::string::npos)
-        {
-            results.push_back(user);
-
-            if (results.size() >= limit)
-                break;
-        }
+        id = 1;
+    }
+    else
+    {
+        id = users.back().getId() + 1;
     }
 
-    return results;
+    User newUser(id, username, password);
+
+    users.push_back(newUser);
+
+    saveUsers();
+
+    std::cout << "User added successfully!\n";
 }
+void UserManager::saveUsers()
+{
+    std::ofstream file(filename);
 
+    if (!file.is_open())
+    {
+        std::cout << "Unable to save users.\n";
+        return;
+    }
 
+    for (const User &user : users)
+    {
+        file << user.getId() << " "
+             << user.getUsername() << " "
+             << user.getPassword() << std::endl;
+    }
+
+    file.close();
+}
