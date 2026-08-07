@@ -14,7 +14,14 @@ int main()
     // testing the UserManager class
     UserManager U("Users.txt");
     U.display();
-
+    if (U.usernameExists("ram"))
+    {
+        cout << "Exists";
+    }
+    else
+    {
+        cout << "Doesn't exist";
+    }
     while (true)
     {
         cout << "\n==== Finance Manager ====\n";
@@ -53,31 +60,31 @@ int main()
             // break;
         }
         case 3:
-        //testing search algorithm
-        {
-            string key;
-            cout << "Enter username: ";
-            cin >> key;
-
-            vector<User> result = U.searchUsers(key);
-
-            if (result.empty())
+            // testing search algorithm
             {
-                cout << "No users found.\n";
-            }
-            else
-            {
-                cout << "\nMatching Users:\n";
+                string key;
+                cout << "Enter username: ";
+                cin >> key;
 
-                for (const auto& user : result)
+                vector<User> result = U.searchUsers(key);
+
+                if (result.empty())
                 {
-                    cout << user.getId() << " "
-                        << user.getUsername() << " "<< endl;
+                    cout << "No users found.\n";
                 }
-            }
+                else
+                {
+                    cout << "\nMatching Users:\n";
 
-            break;
-        }
+                    for (const auto &user : result)
+                    {
+                        cout << user.getId() << " "
+                             << user.getUsername() << " " << endl;
+                    }
+                }
+
+                break;
+            }
 
         case 4:
             return 0;

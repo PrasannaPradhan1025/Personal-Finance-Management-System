@@ -93,14 +93,37 @@ void UserManager::saveUsers()
 
     file.close();
 }
+bool UserManager::usernameExists(const std::string &username)
+{
+    for (const auto &user : users)
+    {
+        if (user.getUsername() == username)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+User *UserManager::findUser(const std::string &username)
+{
+    for (auto &user : users)
+    {
+        if (user.getUsername() == username)
+        {
+            return &user;
+        }
+    }
 
-std::vector<User> UserManager::searchUsers(const std::string& keyword, int limit)
+    return nullptr;
+}
+
+std::vector<User> UserManager::searchUsers(const std::string &keyword, int limit)
 {
     std::vector<User> results;
 
-    for (const auto& user : users)
+    for (const auto &user : users)
     {
-        //inbuilt nai use garei this is case sensitive
+        // inbuilt nai use garei this is case sensitive
         if (user.getUsername().find(keyword) != std::string::npos)
         {
             results.push_back(user);
