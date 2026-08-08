@@ -24,8 +24,8 @@ int main()
         cout << "\n==== Finance Manager ====\n";
         cout << "1. Login\n";
         cout << "2. Sign Up\n";
-        cout << "3. Search User\n";
-        cout << "4. Exit\n";
+        
+        cout << "3. Exit\n";
 
         int choice;
         cin >> choice;
@@ -41,52 +41,88 @@ int main()
         case 2:
         {
             string username, password;
-
+            int signupchoice;
             cout << "Enter username: ";
             cin >> username;
 
-            cout << "Enter password: ";
-            cin >> password;
-            if (auth.signup(username, password))
-            {
-                cout << "Signup successful!\n";
-            }
-            else
-            {
-                cout << "Username already exists!\n";
-            }
 
-            break;
-        }
-        case 3:
-            // testing search algorithm
-            {
-                string key;
-                cout << "Enter username: ";
-                cin >> key;
+            std::cout << "1. Enter my own password\n";
+            std::cout << "2. Generate a strong password\n";
 
-                vector<User> result = U.searchUsers(key);
+            cin >> signupchoice;
+            switch(signupchoice){
+                case 1:
+                    cout << "Enter password: ";
+                        cin >> password;
+                        if (auth.signup(username, password))
+                        {
+                            cout << "Signup successful!\n";
+                        }
+                        else
+                        {
+                            cout << "Username already exists!\n";
+                        }
 
-                if (result.empty())
+                        break;
+                case 2:
                 {
-                    cout << "No users found.\n";
-                }
-                else
-                {
-                    cout << "\nMatching Users:\n";
-
-                    for (const auto &user : result)
+                    int length;
+                    cout << "Enter password length: ";
+                    cin >> length;
+                    if (length < 6)
                     {
-                        cout << user.getId() << " "
-                             << user.getUsername() << " " << endl;
+                        length = 8;
                     }
+                    string strongPassword = generateStrongPassword(length);
+                    cout << "Generated strong password: " << strongPassword << endl;
+                    password = strongPassword;
+                    if (auth.signup(username, password))
+                    {
+                        cout << "Signup successful!\n";
+                    }
+                    else
+                    {
+                        cout << "Signup failed. Username may already exist or password is invalid.\n";
+                    }
+                    break;
                 }
+                        
 
-                break;
             }
 
-        case 4:
+
+           break;
+        }
+        // case 3:
+            // // testing search algorithm
+            // {
+            //     string key;
+            //     cout << "Enter username: ";
+            //     cin >> key;
+
+            //     vector<User> result = U.searchUsers(key);
+
+            //     if (result.empty())
+            //     {
+            //         cout << "No users found.\n";
+            //     }
+            //     else
+            //     {
+            //         cout << "\nMatching Users:\n";
+
+            //         for (const auto &user : result)
+            //         {
+            //             cout << user.getId() << " "
+            //                  << user.getUsername() << " " << endl;
+            //         }
+            //     }
+
+            //     break;
+            // }
+
+        case 3:
             return 0;
+
 
         default:
             cout << "Invalid choice!\n";
