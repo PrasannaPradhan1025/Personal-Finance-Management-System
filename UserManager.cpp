@@ -122,3 +122,15 @@ std::vector<User> UserManager::searchUsers(const std::string &keyword, int limit
 
     return results;
 }
+
+User *UserManager::checkCredentials(const std::string &username, const std::string &password)
+{
+    for (User &user : users)
+    {
+        if (user.getUsername() == username && user.getPassword() == password)
+        {
+            return &user;
+        }
+    }
+    return nullptr;
+}

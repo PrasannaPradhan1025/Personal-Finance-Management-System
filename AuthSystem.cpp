@@ -29,7 +29,7 @@ bool AuthSystem::signup(const std::string &username,
                         const std::string &password)
 {
 
-
+    
 
     if (userManager.usernameExists(username) )
     {
@@ -62,3 +62,18 @@ bool AuthSystem::signup(const std::string &username,
 }
 
 
+bool AuthSystem::login(const std::string &username,
+                       const std::string &password)
+{
+    currentUser = userManager.checkCredentials(username, password);
+    return currentUser != nullptr;
+}
+
+User *AuthSystem::getCurrentUser() const
+{
+    return currentUser;
+}
+void AuthSystem::logout()
+{
+    currentUser = nullptr;
+}
