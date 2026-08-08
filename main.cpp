@@ -2,6 +2,8 @@
 #include "User.h"
 #include "UserManager.h"
 #include "AuthSystem.h"
+#include "utils.h"
+
 
 using namespace std;
 
@@ -9,16 +11,16 @@ int main()
 {
     // just for testing
     User u;
-    u.setPassword("123123");
-    string x = u.getPassword();
+   
 
     // testing the UserManager class
     UserManager U("Users.txt");
-    U.display();
-    // testing the AuthSystem class
+    
+    //  the AuthSystem class
     AuthSystem auth(U);
     while (true)
     {
+        clearScreen();
         cout << "\n==== Finance Manager ====\n";
         cout << "1. Login\n";
         cout << "2. Sign Up\n";
@@ -32,7 +34,7 @@ int main()
         {
         case 1:
             // just testing the setUsername and getUsername
-            cout << x << endl;
+            //login functuonality yeta hala
 
             break;
 
@@ -89,5 +91,8 @@ int main()
         default:
             cout << "Invalid choice!\n";
         }
+
+        pauseScreen();
+        clearScreen();
     }
 }
