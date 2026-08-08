@@ -64,12 +64,8 @@ Class Responsibilities
 3. AuthSystem
    Purpose
 
-   Responsible for authentication.
+   Responsible for authentication whether the username exists already and if not it creates a new user.
 
-   It determines whether a user can access the application.
-   Uses UserManager to authenticate users.
-   Maintains the currently logged-in user.
-   Delegates all user storage operations to UserManager.
    Responsibilities
    Login
    Sign Up
