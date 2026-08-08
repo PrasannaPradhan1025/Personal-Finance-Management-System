@@ -1,6 +1,7 @@
 #include <iostream>
 #include "User.h"
 #include "UserManager.h"
+#include "AuthSystem.h"
 
 using namespace std;
 
@@ -14,14 +15,8 @@ int main()
     // testing the UserManager class
     UserManager U("Users.txt");
     U.display();
-    if (U.usernameExists("ram"))
-    {
-        cout << "Exists";
-    }
-    else
-    {
-        cout << "Doesn't exist";
-    }
+    // testing the AuthSystem class
+    AuthSystem auth(U);
     while (true)
     {
         cout << "\n==== Finance Manager ====\n";
@@ -50,14 +45,16 @@ int main()
 
             cout << "Enter password: ";
             cin >> password;
-
-            U.addUser(username, password);
-
-            U.display(); // Optional: shows the updated user list
+            if (auth.signup(username, password))
+            {
+                cout << "Signup successful!\n";
+            }
+            else
+            {
+                cout << "Username already exists!\n";
+            }
 
             break;
-            // cout << "signup" << endl;
-            // break;
         }
         case 3:
             // testing search algorithm

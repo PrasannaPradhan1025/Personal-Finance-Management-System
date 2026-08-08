@@ -104,19 +104,6 @@ bool UserManager::usernameExists(const std::string &username)
     }
     return false;
 }
-User *UserManager::findUser(const std::string &username)
-{
-    for (auto &user : users)
-    {
-        if (user.getUsername() == username)
-        {
-            return &user;
-        }
-    }
-
-    return nullptr;
-}
-
 std::vector<User> UserManager::searchUsers(const std::string &keyword, int limit)
 {
     std::vector<User> results;
