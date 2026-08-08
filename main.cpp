@@ -43,6 +43,37 @@ int main()
             if (auth.login(username, password))
             {
                 cout << "Login successful!\n";
+                cout << "Welcome, " << auth.getCurrentUser()->getUsername() << "!\n";
+                while (true)
+                {
+                    cout << "\n==== Personal Finance Menu ====\n";
+                    cout << "1. View Profile\n";
+                    // Additional personal finance features can be added here
+                    cout << "5. Logout\n";
+                    int financeChoice;
+                    cin >> financeChoice;
+                    switch (financeChoice)
+                    {
+                    case 1:
+                        cout << "User Profile:\n";
+                        cout << "Username: " << auth.getCurrentUser()->getUsername() << endl;
+                        cout << "User ID: " << auth.getCurrentUser()->getId() << endl;
+                        // additionals
+                        break;
+                    case 5:
+                        auth.logout();
+                        cout << "Logged out successfully!\n";
+
+                        break;
+                    default:
+                        cout << "Invalid choice!\n";
+                    }
+                    if (financeChoice == 5)
+                    {
+                        break; // exit the personal finance menu loop
+                    }
+                }
+                // personal finance menu and further features can be implemented here
             }
             else
             {

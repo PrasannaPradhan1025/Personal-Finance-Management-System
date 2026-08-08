@@ -104,16 +104,16 @@ bool UserManager::usernameExists(const std::string &username)
     }
     return false;
 }
-bool UserManager::checkCredentials(const std::string &username, const std::string &password)
+User *UserManager::checkCredentials(const std::string &username, const std::string &password)
 {
-    for (const User &user : users)
+    for (User &user : users)
     {
         if (user.getUsername() == username && user.getPassword() == password)
         {
-            return true;
+            return &user;
         }
     }
-    return false;
+    return nullptr;
 }
 std::vector<User> UserManager::searchUsers(const std::string &keyword, int limit)
 {

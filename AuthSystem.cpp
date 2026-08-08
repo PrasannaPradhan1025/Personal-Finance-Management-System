@@ -1,7 +1,7 @@
 #include "AuthSystem.h"
 
 AuthSystem::AuthSystem(UserManager &manager)
-    : userManager(manager)
+    : userManager(manager), currentUser(nullptr)
 {
 }
 bool AuthSystem::signup(const std::string &username,
@@ -19,5 +19,15 @@ bool AuthSystem::signup(const std::string &username,
 bool AuthSystem::login(const std::string &username,
                        const std::string &password)
 {
-    return userManager.checkCredentials(username, password);
+    currentUser = userManager.checkCredentials(username, password);
+    return currentUser != nullptr;
+}
+
+User *AuthSystem::getCurrentUser() const
+{
+    return currentUser;
+}
+void AuthSystem::logout()
+{
+    currentUser = nullptr;
 }
