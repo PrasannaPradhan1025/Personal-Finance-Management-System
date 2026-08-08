@@ -4,18 +4,16 @@
 #include "AuthSystem.h"
 #include "utils.h"
 
-
 using namespace std;
 
 int main()
 {
     // just for testing
     User u;
-   
 
     // testing the UserManager class
     UserManager U("Users.txt");
-    
+
     //  the AuthSystem class
     AuthSystem auth(U);
     while (true)
@@ -33,10 +31,26 @@ int main()
         switch (choice)
         {
         case 1:
-            // just testing the setUsername and getUsername
-            //login functuonality yeta hala
+        {
+            string username, password;
+
+            cout << "Enter username: ";
+            cin >> username;
+
+            cout << "Enter password: ";
+            cin >> password;
+
+            if (auth.login(username, password))
+            {
+                cout << "Login successful!\n";
+            }
+            else
+            {
+                cout << "Invalid username or password!\n";
+            }
 
             break;
+        }
 
         case 2:
         {

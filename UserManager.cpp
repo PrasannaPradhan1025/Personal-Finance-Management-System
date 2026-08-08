@@ -95,9 +95,20 @@ void UserManager::saveUsers()
 }
 bool UserManager::usernameExists(const std::string &username)
 {
-    for (const auto &user : users)
+    for (const User &user : users)
     {
         if (user.getUsername() == username)
+        {
+            return true;
+        }
+    }
+    return false;
+}
+bool UserManager::checkCredentials(const std::string &username, const std::string &password)
+{
+    for (const User &user : users)
+    {
+        if (user.getUsername() == username && user.getPassword() == password)
         {
             return true;
         }
@@ -108,7 +119,7 @@ std::vector<User> UserManager::searchUsers(const std::string &keyword, int limit
 {
     std::vector<User> results;
 
-    for (const auto &user : users)
+    for (const User &user : users)
     {
         // inbuilt nai use garei this is case sensitive
         if (user.getUsername().find(keyword) != std::string::npos)

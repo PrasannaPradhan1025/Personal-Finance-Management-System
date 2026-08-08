@@ -16,3 +16,8 @@ bool AuthSystem::signup(const std::string &username,
 
     return true;
 }
+bool AuthSystem::login(const std::string &username,
+                       const std::string &password)
+{
+    return userManager.checkCredentials(username, password);
+}
