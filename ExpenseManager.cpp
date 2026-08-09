@@ -6,13 +6,15 @@
 #include <string>
 #include <vector>
 
-ExpenseManager::ExpenseManager(const std::string &filename, int loggedInUserId)
-    : filename(filename), loggedInUserId(loggedInUserId) {
+ExpenseManager::ExpenseManager(const std::string &filename, int loggedInUserId): filename(filename), loggedInUserId(loggedInUserId)
+{
     loadExpenses();
 }
 
-bool ExpenseManager::isValidDate(const std::string &date) {
+bool ExpenseManager::isValidDate(const std::string &date) //date validation
+{
     if (date.size() != 10) return false;
+
     if (date[4] != '-' || date[7] != '-') return false;
 
     for (int i = 0; i < 10; ++i) {
@@ -23,11 +25,13 @@ bool ExpenseManager::isValidDate(const std::string &date) {
     return true;
 }
 
-bool ExpenseManager::isValidAmount(double amount) {
+bool ExpenseManager::isValidAmount(double amount) //negative check for amount
+{
     return amount > 0;
 }
 
-int ExpenseManager::getNextExpenseId() {
+int ExpenseManager::getNextExpenseId() //tracking number of expenses file ma lekhna
+{
     int nextId = 1;
     for (const Expense &expense : expenses) {
         if (expense.getExpenseId() >= nextId) {
@@ -37,7 +41,8 @@ int ExpenseManager::getNextExpenseId() {
     return nextId;
 }
 
-std::vector<Expense> ExpenseManager::getExpensesForCurrentUser() const {
+std::vector<Expense> ExpenseManager::getExpensesForCurrentUser() const //fetching expenses tyo check gareko bela
+{
     std::vector<Expense> result;
     for (const Expense &expense : expenses) {
         if (expense.getUserId() == loggedInUserId) {
@@ -47,7 +52,8 @@ std::vector<Expense> ExpenseManager::getExpensesForCurrentUser() const {
     return result;
 }
 
-void ExpenseManager::loadExpenses() {
+void ExpenseManager::loadExpenses() //file load ko program vaihayo yo ta
+{
     expenses.clear();
     std::ifstream file(filename.c_str());
     if (!file.is_open()) {
@@ -55,16 +61,20 @@ void ExpenseManager::loadExpenses() {
     }
 
     std::string line;
-    while (std::getline(file, line)) {
+    while (std::getline(file, line)) 
+    {
         if (line.empty()) continue;
         std::stringstream ss(line);
         std::string token;
         std::vector<std::string> parts;
-        while (std::getline(ss, token, '|')) {
+        while (std::getline(ss, token, '|')) 
+        {
             parts.push_back(token);
         }
 
         if (parts.size() != 6) continue;
+
+        //This is to categorize the saved data into things
 
         int expenseId = std::stoi(parts[0]);
         int userId = std::stoi(parts[1]);
@@ -79,14 +89,16 @@ void ExpenseManager::loadExpenses() {
     file.close();
 }
 
-void ExpenseManager::saveExpenses() {
+void ExpenseManager::saveExpenses() //writing to file
+{
     std::ofstream file(filename.c_str(), std::ios::trunc);
     if (!file.is_open()) {
         std::cout << "Unable to save expense records.\n";
         return;
     }
 
-    for (const Expense &expense : expenses) {
+    for (const Expense &expense : expenses) //input from add expense and update expense
+    {
         file << expense.getExpenseId() << '|'
              << expense.getUserId() << '|'
              << std::fixed << std::setprecision(2) << expense.getAmount() << '|'
@@ -98,7 +110,8 @@ void ExpenseManager::saveExpenses() {
     file.close();
 }
 
-void ExpenseManager::addExpense() {
+void ExpenseManager::addExpense() //user input for new expense
+{
     double amount;
     std::string category;
     std::string date;
@@ -130,12 +143,13 @@ void ExpenseManager::addExpense() {
     int expenseId = getNextExpenseId();
     Expense newExpense(expenseId, loggedInUserId, amount, category, date, description);
     expenses.push_back(newExpense);
-    saveExpenses();
+    saveExpenses();//yeta chai save hunxa aaba
 
     std::cout << "Expense added successfully!\n";
 }
 
-void ExpenseManager::viewExpenses() {
+void ExpenseManager::viewExpenses() //yo ta display garni program nai vaihalyo saab ko laagi
+{
     std::vector<Expense> userExpenses = getExpensesForCurrentUser();
 
     if (userExpenses.empty()) {
@@ -154,7 +168,8 @@ void ExpenseManager::viewExpenses() {
     }
 }
 
-void ExpenseManager::updateExpense() {
+void ExpenseManager::updateExpense() //expense update garni previous record in case of kei wrong vaako xa vanei
+{
     int id;
     std::cout << "Enter Expense ID to update: ";
     std::cin >> id;
@@ -173,7 +188,7 @@ void ExpenseManager::updateExpense() {
         return;
     }
 
-    int choice;
+    int choice;//kun category update garni vanera nothing much
     std::cout << "1. Update amount\n2. Update category\n3. Update date\n4. Update description\nEnter choice: ";
     std::cin >> choice;
     std::cin.ignore();
@@ -225,7 +240,8 @@ void ExpenseManager::updateExpense() {
     std::cout << "Expense updated successfully!\n";
 }
 
-void ExpenseManager::deleteExpense() {
+void ExpenseManager::deleteExpense() //expense delete garni program
+{
     int id;
     std::cout << "Enter Expense ID to delete: ";
     std::cin >> id;
@@ -258,7 +274,8 @@ void ExpenseManager::deleteExpense() {
     }
 }
 
-void ExpenseManager::searchExpense() {
+void ExpenseManager::searchExpense() //indivisual search garni waala search user jasstai program ho
+{
     std::string keyword;
     std::cout << "Enter expense ID, category, or date: ";
     std::getline(std::cin, keyword);
@@ -282,7 +299,8 @@ void ExpenseManager::searchExpense() {
     }
 }
 
-double ExpenseManager::getTotalExpenses() {
+double ExpenseManager::getTotalExpenses() //total display expenses ko graph ma kaam lagxa yo waala
+{
     double total = 0.0;
     std::vector<Expense> userExpenses = getExpensesForCurrentUser();
     for (const Expense &expense : userExpenses) {

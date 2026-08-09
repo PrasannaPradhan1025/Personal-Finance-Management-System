@@ -14,9 +14,7 @@ private:
 
 public:
     Expense();
-    Expense(int expenseId, int userId, double amount,
-            const std::string &category, const std::string &date,
-            const std::string &description);
+    Expense(int expenseId, int userId, double amount, const std::string &category, const std::string &date, const std::string &description);
 
     int getExpenseId() const;
     int getUserId() const;

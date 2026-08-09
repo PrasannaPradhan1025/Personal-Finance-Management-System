@@ -13,9 +13,8 @@ private:
     int loggedInUserId;
 
 public:
-    TransactionManager(const std::vector<Income> &incomes,
-                       const std::vector<Expense> &expenses,
-                       int loggedInUserId);
+    TransactionManager(const std::vector<Income> &incomes,  const std::vector<Expense> &expenses, int loggedInUserId);
+    //yesma income and expense both ko pass vaako xa and user kun ho check gareko pass vaako xa
 
     void viewTransactions() const;
     void searchTransaction() const;
