@@ -49,7 +49,7 @@ int main()
 
                 FileManager fileManager("Trans.txt");
                 TransactionManager transactionManager(fileManager, currentUserId);
-
+                clearScreen();
                 while (true)
                 {
                     cout << "\n==== Personal Finance Menu ====\n";
@@ -68,6 +68,7 @@ int main()
                         cout << "User ID: " << auth.getCurrentUser()->getId() << endl;
                         // additionals
                         break;
+                        
                     case 2:
                     {
                         transactionManager.displayTransactions();
@@ -131,6 +132,8 @@ int main()
                     {
                         break; // exit the personal finance menu loop
                     }
+                            pauseScreen();
+                            clearScreen();
                 }
                 // personal finance menu and further features can be implemented here
             }
