@@ -15,7 +15,7 @@ public:
     std::vector<Transaction> loadTransactions(int userId);
 
     void saveTransactions(
-        const std::vector<Transaction> &transactions);
+        const std::vector<Transaction> &transactions, int userId);
 
     int getNextTransactionId();
 };

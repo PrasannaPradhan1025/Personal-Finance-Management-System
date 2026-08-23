@@ -86,7 +86,7 @@ std::vector<Transaction> FileManager::loadTransactions(int userId)
 }
 
 void FileManager::saveTransactions(
-    const std::vector<Transaction> &transactions)
+    const std::vector<Transaction> &transactions, int userId)
 {
     std::vector<Transaction> allTransactions;
 
@@ -153,15 +153,6 @@ void FileManager::saveTransactions(
         }
         inputFile.close();
     }
-
-    // If there are no transactions, there is nothing to save.
-    if (transactions.empty())
-    {
-        return;
-    }
-
-    int userId = transactions[0].getUserId();
-
     std::vector<Transaction> updatedTransactions;
 
     // Keep transactions belonging to other users.

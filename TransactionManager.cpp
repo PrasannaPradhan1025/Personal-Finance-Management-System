@@ -16,9 +16,24 @@ void TransactionManager::loadTransactions()
 
 void TransactionManager::saveTransactions()
 {
-    fileManager.saveTransactions(transactions);
+    fileManager.saveTransactions(transactions, userId);
 }
+bool TransactionManager::deleteTransaction(int transactionId)
+{
+    for (auto it = transactions.begin(); it != transactions.end(); ++it)
+    {
+        if (it->getId() == transactionId)
+        {
+            transactions.erase(it);
+            saveTransactions();
+            std::cout << "Transaction deleted successfully!\n";
+            return true;
+        }
+    }
 
+    std::cout << "Transaction not found.\n";
+    return false;
+}
 void TransactionManager::addTransaction(
     double amount,
     TransactionType type,

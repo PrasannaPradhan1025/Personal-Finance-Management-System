@@ -56,7 +56,7 @@ int main()
                     cout << "1. View Profile\n";
                     cout << "2. View Transactions\n";
                     cout << "3. Add Transaction\n";
-                    // Additional personal finance features can be added here
+                    cout << "4. Delete Transaction\n";
                     cout << "5. Logout\n";
                     int financeChoice;
                     cin >> financeChoice;
@@ -68,7 +68,7 @@ int main()
                         cout << "User ID: " << auth.getCurrentUser()->getId() << endl;
                         // additionals
                         break;
-                        
+
                     case 2:
                     {
                         transactionManager.displayTransactions();
@@ -120,6 +120,20 @@ int main()
 
                         break;
                     }
+                    case 4:
+                    {
+                        transactionManager.displayTransactions();
+
+                        if (!transactionManager.getTransactions().empty())
+                        {
+                            int idToDelete;
+                            cout << "Enter transaction ID to delete: ";
+                            cin >> idToDelete;
+                            transactionManager.deleteTransaction(idToDelete);
+                        }
+
+                        break;
+                    }
                     case 5:
                         auth.logout();
                         cout << "Logged out successfully!\n";
@@ -132,8 +146,8 @@ int main()
                     {
                         break; // exit the personal finance menu loop
                     }
-                            pauseScreen();
-                            clearScreen();
+                    pauseScreen();
+                    clearScreen();
                 }
                 // personal finance menu and further features can be implemented here
             }

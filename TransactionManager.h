@@ -25,6 +25,7 @@ public:
                         const std::string &date);
 
     void displayTransactions();
+    bool deleteTransaction(int transactionId);
 
     std::vector<Transaction> getTransactions() const;
 };
