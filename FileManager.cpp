@@ -46,29 +46,37 @@ std::vector<Transaction> FileManager::loadTransactions(int userId)
         std::getline(ss, description, '|');
         std::getline(ss, date, '|');
 
-        if (std::stoi(storedUserId) == userId)
+        try
         {
-            TransactionType transactionType;
-
-            if (type == "INCOME")
+            if (std::stoi(storedUserId) == userId)
             {
-                transactionType = TransactionType::INCOME;
-            }
-            else
-            {
-                transactionType = TransactionType::EXPENSE;
-            }
+                TransactionType transactionType;
 
-            Transaction transaction(
-                std::stoi(id),
-                std::stoi(storedUserId),
-                std::stod(amount),
-                transactionType,
-                category,
-                description,
-                date);
+                if (type == "INCOME")
+                {
+                    transactionType = TransactionType::INCOME;
+                }
+                else
+                {
+                    transactionType = TransactionType::EXPENSE;
+                }
 
-            transactions.push_back(transaction);
+                Transaction transaction(
+                    std::stoi(id),
+                    std::stoi(storedUserId),
+                    std::stod(amount),
+                    transactionType,
+                    category,
+                    description,
+                    date);
+
+                transactions.push_back(transaction);
+            }
+        }
+        catch (const std::exception &)
+        {
+            std::cout << "Warning: skipping malformed transaction line.\n";
+            continue;
         }
     }
 
@@ -113,29 +121,36 @@ void FileManager::saveTransactions(
             std::getline(ss, description, '|');
             std::getline(ss, date, '|');
 
-            TransactionType transactionType;
-
-            if (type == "INCOME")
+            try
             {
-                transactionType = TransactionType::INCOME;
+                TransactionType transactionType;
+
+                if (type == "INCOME")
+                {
+                    transactionType = TransactionType::INCOME;
+                }
+                else
+                {
+                    transactionType = TransactionType::EXPENSE;
+                }
+
+                Transaction transaction(
+                    std::stoi(id),
+                    std::stoi(storedUserId),
+                    std::stod(amount),
+                    transactionType,
+                    category,
+                    description,
+                    date);
+
+                allTransactions.push_back(transaction);
             }
-            else
+            catch (const std::exception &)
             {
-                transactionType = TransactionType::EXPENSE;
+                std::cout << "Warning: skipping malformed transaction line.\n";
+                continue;
             }
-
-            Transaction transaction(
-                std::stoi(id),
-                std::stoi(storedUserId),
-                std::stod(amount),
-                transactionType,
-                category,
-                description,
-                date);
-
-            allTransactions.push_back(transaction);
         }
-
         inputFile.close();
     }
 
@@ -210,16 +225,20 @@ int FileManager::getNextTransactionId()
     while (std::getline(file, line))
     {
         std::stringstream ss(line);
-
         std::string id;
-
         std::getline(ss, id, '|');
 
-        int currentId = std::stoi(id);
-
-        if (currentId > highestId)
+        try
         {
-            highestId = currentId;
+            int currentId = std::stoi(id);
+            if (currentId > highestId)
+            {
+                highestId = currentId;
+            }
+        }
+        catch (const std::exception &)
+        {
+            continue;
         }
     }
 
