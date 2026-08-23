@@ -1,6 +1,7 @@
 #include "UserManager.h"
 #include <iostream>
 #include <string>
+#include <sstream>
 
 UserManager::UserManager(const std::string &filename) : filename(filename)
 {
@@ -41,13 +42,41 @@ void UserManager::loadUsers()
         std::cout << "No user file found.\n";
         return;
     }
-    int id;
-    std::string username;
-    std::string password;
+    std::string line;
+    int lineNumber = 0;
 
-    while (file >> id >> username >> password)
+    while (std::getline(file, line))
     {
-        users.push_back(User(id, username, password));
+        lineNumber++;
+
+        if (line.empty())
+        {
+            continue;
+        }
+
+        std::stringstream ss(line);
+        std::string idStr, username, password;
+
+        ss >> idStr >> username >> password;
+
+        if (idStr.empty() || username.empty() || password.empty())
+        {
+            std::cout << "Warning: skipping malformed line "
+                      << lineNumber << " in " << filename << "\n";
+            continue;
+        }
+
+        try
+        {
+            int id = std::stoi(idStr);
+            users.push_back(User(id, username, password));
+        }
+        catch (const std::exception &)
+        {
+            std::cout << "Warning: skipping malformed line "
+                      << lineNumber << " in " << filename << "\n";
+            continue;
+        }
     }
 
     file.close();

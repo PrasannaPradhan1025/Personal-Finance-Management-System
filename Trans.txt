@@ -1,1 +1,2 @@
-1|13|5.43453e+07|EXPENSE|dcsd|cee|3323232
+1|13|5.43453e+07|EXPENSE|Rent|For january|13-08-2081
+
