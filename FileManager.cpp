@@ -37,6 +37,9 @@ std::vector<Transaction> FileManager::loadTransactions(int userId)
         std::string category;
         std::string description;
         std::string date;
+        std::string savingIdStr;
+        std::string targetAmountStr;
+        std::string savedAmountStr;
 
         std::getline(ss, id, '|');
         std::getline(ss, storedUserId, '|');
@@ -45,6 +48,11 @@ std::vector<Transaction> FileManager::loadTransactions(int userId)
         std::getline(ss, category, '|');
         std::getline(ss, description, '|');
         std::getline(ss, date, '|');
+
+        // optional saving-specific fields
+        std::getline(ss, savingIdStr, '|');
+        std::getline(ss, targetAmountStr, '|');
+        std::getline(ss, savedAmountStr, '|');
 
         try
         {
@@ -56,9 +64,30 @@ std::vector<Transaction> FileManager::loadTransactions(int userId)
                 {
                     transactionType = TransactionType::INCOME;
                 }
-                else
+                else if (type == "EXPENSE")
                 {
                     transactionType = TransactionType::EXPENSE;
+                }
+                else // SAVING or unknown
+                {
+                    transactionType = TransactionType::SAVING;
+                }
+
+                int savingId = 0;
+                double targetAmt = 0.0;
+                double savedAmt = 0.0;
+
+                if (!savingIdStr.empty())
+                {
+                    try { savingId = std::stoi(savingIdStr); } catch(...) { savingId = 0; }
+                }
+                if (!targetAmountStr.empty())
+                {
+                    try { targetAmt = std::stod(targetAmountStr); } catch(...) { targetAmt = 0.0; }
+                }
+                if (!savedAmountStr.empty())
+                {
+                    try { savedAmt = std::stod(savedAmountStr); } catch(...) { savedAmt = 0.0; }
                 }
 
                 Transaction transaction(
@@ -68,7 +97,10 @@ std::vector<Transaction> FileManager::loadTransactions(int userId)
                     transactionType,
                     category,
                     description,
-                    date);
+                    date,
+                    savingId,
+                    targetAmt,
+                    savedAmt);
 
                 transactions.push_back(transaction);
             }
@@ -129,10 +161,30 @@ void FileManager::saveTransactions(
                 {
                     transactionType = TransactionType::INCOME;
                 }
-                else
+                else if (type == "EXPENSE")
                 {
                     transactionType = TransactionType::EXPENSE;
                 }
+                else
+                {
+                    transactionType = TransactionType::SAVING;
+                }
+
+                // try to read optional saving fields
+                std::string savingIdStr;
+                std::string targetAmountStr;
+                std::string savedAmountStr;
+                std::getline(ss, savingIdStr, '|');
+                std::getline(ss, targetAmountStr, '|');
+                std::getline(ss, savedAmountStr, '|');
+
+                int savingId = 0;
+                double targetAmt = 0.0;
+                double savedAmt = 0.0;
+
+                if (!savingIdStr.empty()) { try { savingId = std::stoi(savingIdStr); } catch(...) { savingId = 0; } }
+                if (!targetAmountStr.empty()) { try { targetAmt = std::stod(targetAmountStr); } catch(...) { targetAmt = 0.0; } }
+                if (!savedAmountStr.empty()) { try { savedAmt = std::stod(savedAmountStr); } catch(...) { savedAmt = 0.0; } }
 
                 Transaction transaction(
                     std::stoi(id),
@@ -141,7 +193,10 @@ void FileManager::saveTransactions(
                     transactionType,
                     category,
                     description,
-                    date);
+                    date,
+                    savingId,
+                    targetAmt,
+                    savedAmt);
 
                 allTransactions.push_back(transaction);
             }
@@ -188,14 +243,30 @@ void FileManager::saveTransactions(
         {
             file << "INCOME|";
         }
-        else
+        else if (transaction.getType() == TransactionType::EXPENSE)
         {
             file << "EXPENSE|";
+        }
+        else // SAVING
+        {
+            file << "SAVING|";
         }
 
         file << transaction.getCategory() << "|"
              << transaction.getDescription() << "|"
-             << transaction.getDate() << "\n";
+             << transaction.getDate() << "|";
+
+        // If saving, append saving fields; otherwise write empty placeholders for compatibility
+        if (transaction.getType() == TransactionType::SAVING)
+        {
+            file << transaction.getSavingId() << "|"
+                 << transaction.getTargetAmount() << "|"
+                 << transaction.getSavedAmount() << "\n";
+        }
+        else
+        {
+            file << "|" << "|" << "\n"; // placeholders to keep field positions
+        }
     }
 
     file.close();

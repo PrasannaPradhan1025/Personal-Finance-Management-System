@@ -24,6 +24,16 @@ public:
                         const std::string &description,
                         const std::string &date);
 
+    // overloaded for savings (optional)
+    void addTransaction(double amount,
+                        TransactionType type,
+                        const std::string &category,
+                        const std::string &description,
+                        const std::string &date,
+                        int savingId,
+                        double targetAmount,
+                        double savedAmount);
+
     void displayTransactions();
     bool deleteTransaction(int transactionId);
 

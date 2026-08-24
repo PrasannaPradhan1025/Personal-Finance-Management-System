@@ -50,7 +50,41 @@ void TransactionManager::addTransaction(
         type,
         category,
         description,
-        date);
+        date,
+        0, // savingId
+        0.0,
+        0.0);
+
+    transactions.push_back(transaction);
+
+    saveTransactions();
+
+    std::cout << "Transaction added successfully!\n";
+}
+
+void TransactionManager::addTransaction(
+    double amount,
+    TransactionType type,
+    const std::string &category,
+    const std::string &description,
+    const std::string &date,
+    int savingId,
+    double targetAmount,
+    double savedAmount)
+{
+    int id = fileManager.getNextTransactionId();
+
+    Transaction transaction(
+        id,
+        userId,
+        amount,
+        type,
+        category,
+        description,
+        date,
+        savingId,
+        targetAmount,
+        savedAmount);
 
     transactions.push_back(transaction);
 
@@ -79,7 +113,14 @@ void TransactionManager::displayTransactions()
         std::cout << "Description: "
                   << transaction.getDescription() << '\n';
         std::cout << "Date: "
-                  << transaction.getDate() << "\n\n";
+                  << transaction.getDate() << "\n";
+        if (transaction.getType() == TransactionType::SAVING)
+        {
+            std::cout << "Saving ID: " << transaction.getSavingId() << "\n";
+            std::cout << "Target Amount: " << transaction.getTargetAmount() << "\n";
+            std::cout << "Saved Amount: " << transaction.getSavedAmount() << "\n";
+        }
+        std::cout << "\n";
     }
 }
 
