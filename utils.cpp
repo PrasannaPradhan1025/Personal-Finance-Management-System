@@ -4,6 +4,8 @@
 #include "utils.h"
 #include <random>
 #include <string>
+#include <sstream>
+#include <cmath>
 
 
 void clearScreen() {
@@ -38,4 +40,46 @@ std::string generateStrongPassword(int length)
     }
 
     return password;
+}
+
+bool readInt(const std::string &prompt, int &value)
+{
+    std::cout << prompt;
+    std::string input;
+    if (!std::getline(std::cin, input))
+        return false;
+
+    std::stringstream stream(input);
+    char extra;
+    if (!(stream >> value) || (stream >> extra))
+    {
+        std::cout << "Please enter a whole number.\n";
+        return false;
+    }
+    return true;
+}
+
+bool readAmount(const std::string &prompt, double &value)
+{
+    std::cout << prompt;
+    std::string input;
+    if (!std::getline(std::cin, input))
+        return false;
+
+    std::stringstream stream(input);
+    char extra;
+    if (!(stream >> value) || (stream >> extra) || !std::isfinite(value))
+    {
+        std::cout << "Please enter a valid amount.\n";
+        return false;
+    }
+    return true;
+}
+
+std::string readText(const std::string &prompt)
+{
+    std::cout << prompt;
+    std::string value;
+    std::getline(std::cin, value);
+    return value;
 }
