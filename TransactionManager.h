@@ -25,7 +25,15 @@ public:
                         const std::string &date);
 
     void displayTransactions();
+    void displayTransactions(const std::vector<Transaction> &transactions) const;
     bool deleteTransaction(int transactionId);
+    bool updateTransaction(int transactionId,
+                           double amount,
+                           TransactionType type,
+                           const std::string &category,
+                           const std::string &description,
+                           const std::string &date);
+    std::vector<Transaction> searchTransactions(const std::string &keyword) const;
 
     std::vector<Transaction> getTransactions() const;
 };
