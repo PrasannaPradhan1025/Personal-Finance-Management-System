@@ -1,262 +1,218 @@
 #include <iostream>
-#include "User.h"
-#include "UserManager.h"
-#include "AuthSystem.h"
-#include "utils.h"
-#include "FileManager.h"
-#include "TransactionManager.h"
+#include <string>
 
-using namespace std;
+#include "AuthSystem.h"
+#include "FileManager.h"
+#include "Statistics.h"
+#include "TransactionManager.h"
+#include "UserManager.h"
+#include "utils.h"
+
+namespace
+{
+bool readTransactionDetails(double &amount, TransactionType &type,
+                            std::string &category, std::string &description,
+                            std::string &date)
+{
+    if (!readAmount("Enter amount: ", amount) || amount <= 0.0)
+    {
+        std::cout << "Amount must be greater than zero.\n";
+        return false;
+    }
+
+    int typeChoice;
+    if (!readInt("1. Income\n2. Expense\nEnter type: ", typeChoice) ||
+        (typeChoice != 1 && typeChoice != 2))
+    {
+        std::cout << "Invalid transaction type.\n";
+        return false;
+    }
+    type = typeChoice == 1 ? TransactionType::INCOME : TransactionType::EXPENSE;
+
+    category = readText("Enter category: ");
+    description = readText("Enter description: ");
+    date = readText("Enter date (DD-MM-YYYY): ");
+    return true;
+}
+
+void pauseAndClear()
+{
+    pauseScreen();
+    clearScreen();
+}
+}
 
 int main()
 {
-    // just for testing
-    User u;
+    UserManager userManager("Users.txt");
+    AuthSystem auth(userManager);
 
-    // testing the UserManager class
-    UserManager U("Users.txt");
-    //  the AuthSystem class
-    AuthSystem auth(U);
     while (true)
     {
         clearScreen();
-        cout << "\n==== Finance Manager ====\n";
-        cout << "1. Login\n";
-        cout << "2. Sign Up\n";
-
-        cout << "3. Exit\n";
+        std::cout << "\n==== Finance Manager ====\n"
+                  << "1. Login\n"
+                  << "2. Sign Up\n"
+                  << "3. Exit\n";
 
         int choice;
-        cin >> choice;
-
-        switch (choice)
+        if (!readInt("Choose an option: ", choice))
         {
-        case 1:
+            pauseAndClear();
+            continue;
+        }
+
+        if (choice == 3)
+            return 0;
+
+        if (choice == 2)
         {
-            string username, password;
+            std::string username = readText("Enter username: ");
+            std::string password;
+            int signupChoice;
 
-            cout << "Enter username: ";
-            cin >> username;
-
-            cout << "Enter password: ";
-            cin >> password;
-
-            if (auth.login(username, password))
+            if (!readInt("1. Enter my own password\n2. Generate a strong password\nChoose an option: ", signupChoice))
             {
-                cout << "Login successful!\n";
-                cout << "Welcome, " << auth.getCurrentUser()->getUsername() << "!\n";
-                int currentUserId = auth.getCurrentUser()->getId();
+                pauseAndClear();
+                continue;
+            }
 
-                FileManager fileManager("Trans.txt");
-                TransactionManager transactionManager(fileManager, currentUserId);
-                clearScreen();
-                while (true)
+            if (signupChoice == 1)
+            {
+                password = readText("Enter password: ");
+            }
+            else if (signupChoice == 2)
+            {
+                int length;
+                if (!readInt("Enter password length: ", length))
                 {
-                    cout << "\n==== Personal Finance Menu ====\n";
-                    cout << "1. View Profile\n";
-                    cout << "2. View Transactions\n";
-                    cout << "3. Add Transaction\n";
-                    cout << "4. Delete Transaction\n";
-                    cout << "5. Logout\n";
-                    int financeChoice;
-                    cin >> financeChoice;
-                    switch (financeChoice)
-                    {
-                    case 1:
-                        cout << "User Profile:\n";
-                        cout << "Username: " << auth.getCurrentUser()->getUsername() << endl;
-                        cout << "User ID: " << auth.getCurrentUser()->getId() << endl;
-                        // additionals
-                        break;
-
-                    case 2:
-                    {
-                        transactionManager.displayTransactions();
-                        break;
-                    }
-                    case 3:
-                    {
-                        double amount;
-                        int typeChoice;
-                        string category;
-                        string description;
-                        string date;
-
-                        cout << "Enter amount: ";
-                        cin >> amount;
-
-                        cout << "1. Income\n";
-                        cout << "2. Expense\n";
-                        cout << "Enter type: ";
-                        cin >> typeChoice;
-
-                        TransactionType type;
-
-                        if (typeChoice == 1)
-                            type = TransactionType::INCOME;
-                        else if (typeChoice == 2)
-                            type = TransactionType::EXPENSE;
-                        else
-                        {
-                            cout << "Invalid transaction type!\n";
-                            break;
-                        }
-
-                        cout << "Enter category: ";
-                        cin >> category;
-
-                        cout << "Enter description: ";
-                        cin >> description;
-
-                        cout << "Enter date: ";
-                        cin >> date;
-
-                        transactionManager.addTransaction(
-                            amount,
-                            type,
-                            category,
-                            description,
-                            date);
-
-                        break;
-                    }
-                    case 4:
-                    {
-                        transactionManager.displayTransactions();
-
-                        if (!transactionManager.getTransactions().empty())
-                        {
-                            int idToDelete;
-                            cout << "Enter transaction ID to delete: ";
-                            cin >> idToDelete;
-                            transactionManager.deleteTransaction(idToDelete);
-                        }
-
-                        break;
-                    }
-                    case 5:
-                        auth.logout();
-                        cout << "Logged out successfully!\n";
-
-                        break;
-                    default:
-                        cout << "Invalid choice!\n";
-                    }
-                    if (financeChoice == 5)
-                    {
-                        break; // exit the personal finance menu loop
-                    }
-                    pauseScreen();
-                    clearScreen();
+                    pauseAndClear();
+                    continue;
                 }
-                // personal finance menu and further features can be implemented here
+                if (length < 6)
+                    length = 8;
+                password = generateStrongPassword(length);
+                std::cout << "Generated strong password: " << password << '\n';
             }
             else
             {
-                cout << "Invalid username or password!\n";
+                std::cout << "Invalid signup option.\n";
+                pauseAndClear();
+                continue;
             }
 
-            break;
+            if (auth.signup(username, password))
+                std::cout << "Signup successful!\n";
+            else
+                std::cout << "Signup failed. Check the username and password requirements.\n";
+            pauseAndClear();
+            continue;
         }
 
-        case 2:
+        if (choice != 1)
         {
-            string username, password;
-            int signupchoice;
-            cout << "Enter username: ";
-            cin >> username;
+            std::cout << "Invalid choice.\n";
+            pauseAndClear();
+            continue;
+        }
 
-            std::cout << "1. Enter my own password\n";
-            std::cout << "2. Generate a strong password\n";
+        std::string username = readText("Enter username: ");
+        std::string password = readText("Enter password: ");
+        if (!auth.login(username, password))
+        {
+            std::cout << "Invalid username or password.\n";
+            pauseAndClear();
+            continue;
+        }
 
-            cin >> signupchoice;
-            switch (signupchoice)
+        std::cout << "Login successful! Welcome, " << auth.getCurrentUser()->getUsername() << "!\n";
+        FileManager fileManager("Trans.txt");
+        TransactionManager transactionManager(fileManager, auth.getCurrentUser()->getId());
+
+        bool loggedIn = true;
+        while (loggedIn)
+        {
+            std::cout << "\n==== Personal Finance Menu ====\n"
+                      << "1. View Profile\n"
+                      << "2. View Transactions\n"
+                      << "3. Add Transaction\n"
+                      << "4. Edit Transaction\n"
+                      << "5. Delete Transaction\n"
+                      << "6. Search Transactions\n"
+                      << "7. Financial Summary\n"
+                      << "8. Logout\n";
+
+            int financeChoice;
+            if (!readInt("Choose an option: ", financeChoice))
+            {
+                pauseAndClear();
+                continue;
+            }
+
+            switch (financeChoice)
             {
             case 1:
-                cout << "Enter password: ";
-                cin >> password;
-                if (auth.signup(username, password))
-                {
-                    cout << "Signup successful!\n";
-                }
-                else
-                {
-                    cout << "Username already exists!\n";
-                }
-
+                std::cout << "\nUser Profile\nUsername: " << auth.getCurrentUser()->getUsername()
+                          << "\nUser ID: " << auth.getCurrentUser()->getId() << '\n';
                 break;
             case 2:
+                transactionManager.displayTransactions();
+                break;
+            case 3:
             {
-                int length;
-                cout << "Enter password length: ";
-                cin >> length;
-                if (length < 6)
+                double amount;
+                TransactionType type;
+                std::string category, description, date;
+                if (readTransactionDetails(amount, type, category, description, date))
+                    transactionManager.addTransaction(amount, type, category, description, date);
+                break;
+            }
+            case 4:
+            {
+                transactionManager.displayTransactions();
+                int id;
+                if (readInt("Enter transaction ID to edit: ", id))
                 {
-                    length = 8;
-                }
-                string strongPassword = generateStrongPassword(length);
-                cout << "Generated strong password: " << strongPassword << endl;
-                password = strongPassword;
-                if (auth.signup(username, password))
-                {
-                    cout << "Signup successful!\n";
-                }
-                else
-                {
-                    cout << "Signup failed. Username may already exist or password is invalid.\n";
+                    double amount;
+                    TransactionType type;
+                    std::string category, description, date;
+                    if (readTransactionDetails(amount, type, category, description, date))
+                        transactionManager.updateTransaction(id, amount, type, category, description, date);
                 }
                 break;
             }
-            }
-
-            break;
-        }
-            // case 3:
-            // // testing search algorithm
-            // {
-            //     string key;
-            //     cout << "Enter username: ";
-            //     cin >> key;
-
-            //     vector<User> result = U.searchUsers(key);
-
-            //     if (result.empty())
-            //     {
-            //         cout << "No users found.\n";
-            //     }
-            //     else
-            //     {
-            //         cout << "\nMatching Users:\n";
-
-            //         for (const auto &user : result)
-            //         {
-            //             cout << user.getId() << " "
-            //                  << user.getUsername() << " " << endl;
-            //         }
-            //     }
-
-            //     break;
-            // }
-
-        case 3:
-            return 0;
-
-        case 67:
-            // just for testing the generateStrongPassword function
+            case 5:
             {
-                int length;
-                cout << "Enter password length: ";
-                cin >> length;
-                string strongPassword = generateStrongPassword(length = 8);
-                cout << "Generated strong password: " << strongPassword << endl;
+                transactionManager.displayTransactions();
+                int id;
+                if (readInt("Enter transaction ID to delete: ", id))
+                    transactionManager.deleteTransaction(id);
+                break;
             }
-            break;
+            case 6:
+            {
+                std::string keyword = readText("Search category, description, or date: ");
+                transactionManager.displayTransactions(transactionManager.searchTransactions(keyword));
+                break;
+            }
+            case 7:
+            {
+                Statistics statistics(transactionManager.getTransactions());
+                statistics.displayFinancialSummary();
+                break;
+            }
+            case 8:
+                auth.logout();
+                loggedIn = false;
+                std::cout << "Logged out successfully!\n";
+                break;
+            default:
+                std::cout << "Invalid choice.\n";
+                break;
+            }
 
-        default:
-            cout << "Invalid choice!\n";
+            if (loggedIn)
+                pauseAndClear();
         }
-
-        pauseScreen();
-        clearScreen();
     }
 }
