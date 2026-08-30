@@ -1,3 +1,400 @@
-1|13|5.43453e+07|EXPENSE|Rent|For january|13-08-2081
-2|13|8909|EXPENSE|cdcc|ecec|02-12-2025
-3|13|5000|INCOME|flowers|FOrMYNABHAKOGF|40-07-2027
+1|1|45000|INCOME|Salary|Monthly salary credited|05-01-2026
+2|1|12000|EXPENSE|Rent|Monthly house rent|07-01-2026
+3|1|3500|EXPENSE|Food|Groceries and daily food|10-01-2026
+4|1|1800|EXPENSE|Utilities|Electricity and water bill|14-01-2026
+5|1|2500|EXPENSE|Transport|Fuel and local transportation|17-01-2026
+6|1|5000|EXPENSE|Shopping|Clothing and personal items|21-01-2026
+7|1|3000|INCOME|Freelance|Freelance project payment|25-01-2026
+8|1|1500|EXPENSE|Entertainment|Movie and recreation|28-01-2026
+9|1|2200|EXPENSE|Health|Medicine and health expenses|02-02-2026
+10|1|45000|INCOME|Salary|Monthly salary credited|05-02-2026
+11|1|12000|EXPENSE|Rent|Monthly house rent|07-02-2026
+12|1|3200|EXPENSE|Food|Groceries and restaurant meals|11-02-2026
+13|1|1600|EXPENSE|Utilities|Internet and electricity bill|15-02-2026
+14|1|2800|EXPENSE|Transport|Fuel and public transport|18-02-2026
+15|1|4000|EXPENSE|Shopping|Household items|21-02-2026
+16|1|3500|INCOME|Freelance|Website development payment|24-02-2026
+17|1|1800|EXPENSE|Entertainment|Weekend activities|26-02-2026
+18|1|2100|EXPENSE|Food|Groceries|02-03-2026
+19|1|45000|INCOME|Salary|Monthly salary credited|05-03-2026
+20|1|1250|EXPENSE|Utilities|Water and electricity bill|08-03-2026
+21|2|38000|INCOME|Salary|Monthly salary credited|04-01-2026
+22|2|9000|EXPENSE|Rent|Monthly room rent|06-01-2026
+23|2|2800|EXPENSE|Food|Groceries and meals|09-01-2026
+24|2|1400|EXPENSE|Utilities|Electricity bill|13-01-2026
+25|2|2200|EXPENSE|Transport|Bus and fuel expenses|16-01-2026
+26|2|4500|EXPENSE|Shopping|Clothes and accessories|20-01-2026
+27|2|2500|INCOME|Freelance|Graphic design payment|23-01-2026
+28|2|1200|EXPENSE|Entertainment|Cinema and recreation|26-01-2026
+29|2|1800|EXPENSE|Health|Pharmacy expenses|30-01-2026
+30|2|38000|INCOME|Salary|Monthly salary credited|04-02-2026
+31|2|9000|EXPENSE|Rent|Monthly room rent|06-02-2026
+32|2|3100|EXPENSE|Food|Groceries and meals|10-02-2026
+33|2|1500|EXPENSE|Utilities|Internet and electricity bill|14-02-2026
+34|2|2000|EXPENSE|Transport|Fuel and bus fare|17-02-2026
+35|2|3700|EXPENSE|Shopping|Household shopping|20-02-2026
+36|2|3000|INCOME|Freelance|Design project payment|24-02-2026
+37|2|1400|EXPENSE|Entertainment|Weekend outing|27-02-2026
+38|2|2600|EXPENSE|Food|Restaurant and groceries|03-03-2026
+39|2|38000|INCOME|Salary|Monthly salary credited|04-03-2026
+40|2|1300|EXPENSE|Utilities|Electricity and water bill|07-03-2026
+41|3|42000|INCOME|Salary|Monthly salary credited|03-01-2026
+42|3|11000|EXPENSE|Rent|Monthly house rent|05-01-2026
+43|3|3300|EXPENSE|Food|Groceries and meals|08-01-2026
+44|3|1700|EXPENSE|Utilities|Electricity and internet|12-01-2026
+45|3|2600|EXPENSE|Transport|Fuel expenses|15-01-2026
+46|3|5200|EXPENSE|Shopping|Clothing and accessories|19-01-2026
+47|3|4000|INCOME|Freelance|Programming project payment|23-01-2026
+48|3|1600|EXPENSE|Entertainment|Movies and recreation|27-01-2026
+49|3|1900|EXPENSE|Health|Medicine purchase|30-01-2026
+50|3|42000|INCOME|Salary|Monthly salary credited|03-02-2026
+51|3|11000|EXPENSE|Rent|Monthly house rent|05-02-2026
+52|3|3500|EXPENSE|Food|Monthly groceries|09-02-2026
+53|3|1800|EXPENSE|Utilities|Internet and electricity|13-02-2026
+54|3|2400|EXPENSE|Transport|Fuel and public transport|16-02-2026
+55|3|4600|EXPENSE|Shopping|Electronic accessories|20-02-2026
+56|3|3200|INCOME|Freelance|Software maintenance payment|24-02-2026
+57|3|1500|EXPENSE|Entertainment|Movie and snacks|27-02-2026
+58|3|2900|EXPENSE|Food|Restaurant expenses|02-03-2026
+59|3|42000|INCOME|Salary|Monthly salary credited|03-03-2026
+60|3|1650|EXPENSE|Utilities|Water and electricity bill|07-03-2026
+61|4|35000|INCOME|Salary|Monthly salary credited|02-01-2026
+62|4|8500|EXPENSE|Rent|Monthly room rent|05-01-2026
+63|4|2600|EXPENSE|Food|Groceries and meals|08-01-2026
+64|4|1300|EXPENSE|Utilities|Electricity bill|11-01-2026
+65|4|1900|EXPENSE|Transport|Transportation expenses|15-01-2026
+66|4|4200|EXPENSE|Shopping|Clothes and essentials|18-01-2026
+67|4|2800|INCOME|Part-time|Part-time work payment|22-01-2026
+68|4|1100|EXPENSE|Entertainment|Recreation expenses|25-01-2026
+69|4|1700|EXPENSE|Health|Medical and pharmacy expenses|29-01-2026
+70|4|35000|INCOME|Salary|Monthly salary credited|02-02-2026
+71|4|8500|EXPENSE|Rent|Monthly room rent|05-02-2026
+72|4|2900|EXPENSE|Food|Groceries and meals|09-02-2026
+73|4|1200|EXPENSE|Utilities|Internet and electricity|12-02-2026
+74|4|2100|EXPENSE|Transport|Fuel and bus fare|16-02-2026
+75|4|3900|EXPENSE|Shopping|Household items|19-02-2026
+76|4|3000|INCOME|Part-time|Part-time tutoring income|23-02-2026
+77|4|1300|EXPENSE|Entertainment|Weekend recreation|26-02-2026
+78|4|2400|EXPENSE|Food|Restaurant expenses|02-03-2026
+79|4|35000|INCOME|Salary|Monthly salary credited|02-03-2026
+80|4|1400|EXPENSE|Utilities|Water bill|06-03-2026
+81|5|50000|INCOME|Salary|Monthly salary credited|01-01-2026
+82|5|14000|EXPENSE|Rent|Monthly house rent|04-01-2026
+83|5|4200|EXPENSE|Food|Groceries and meals|07-01-2026
+84|5|2200|EXPENSE|Utilities|Electricity and internet|11-01-2026
+85|5|3000|EXPENSE|Transport|Fuel and transportation|15-01-2026
+86|5|6500|EXPENSE|Shopping|Clothes and household items|19-01-2026
+87|5|5000|INCOME|Business|Small business income|23-01-2026
+88|5|1800|EXPENSE|Entertainment|Family outing|27-01-2026
+89|5|2500|EXPENSE|Health|Medical expenses|30-01-2026
+90|5|50000|INCOME|Salary|Monthly salary credited|01-02-2026
+91|5|14000|EXPENSE|Rent|Monthly house rent|04-02-2026
+92|5|4300|EXPENSE|Food|Groceries and dining|08-02-2026
+93|5|2100|EXPENSE|Utilities|Internet and electricity|12-02-2026
+94|5|3200|EXPENSE|Transport|Fuel expenses|15-02-2026
+95|5|5800|EXPENSE|Shopping|Household purchases|19-02-2026
+96|5|4500|INCOME|Business|Business sales income|23-02-2026
+97|5|1700|EXPENSE|Entertainment|Weekend family activity|26-02-2026
+98|5|3900|EXPENSE|Food|Restaurant and groceries|01-03-2026
+99|5|50000|INCOME|Salary|Monthly salary credited|01-03-2026
+100|5|2000|EXPENSE|Utilities|Water and electricity bill|05-03-2026
+101|6|32000|INCOME|Salary|Monthly salary credited|03-01-2026
+102|6|7500|EXPENSE|Rent|Monthly room rent|06-01-2026
+103|6|2300|EXPENSE|Food|Groceries and meals|09-01-2026
+104|6|1100|EXPENSE|Utilities|Electricity bill|13-01-2026
+105|6|1700|EXPENSE|Transport|Bus and fuel|16-01-2026
+106|6|3500|EXPENSE|Shopping|Clothes and essentials|20-01-2026
+107|6|2000|INCOME|Freelance|Freelance work payment|24-01-2026
+108|6|900|EXPENSE|Entertainment|Movie and recreation|27-01-2026
+109|6|1300|EXPENSE|Health|Medicine expenses|30-01-2026
+110|6|32000|INCOME|Salary|Monthly salary credited|03-02-2026
+111|6|7500|EXPENSE|Rent|Monthly room rent|06-02-2026
+112|6|2500|EXPENSE|Food|Groceries and meals|10-02-2026
+113|6|1200|EXPENSE|Utilities|Internet and electricity|14-02-2026
+114|6|1800|EXPENSE|Transport|Transport expenses|17-02-2026
+115|6|3200|EXPENSE|Shopping|Household items|20-02-2026
+116|6|2400|INCOME|Freelance|Online freelance payment|24-02-2026
+117|6|1000|EXPENSE|Entertainment|Weekend activities|27-02-2026
+118|6|2100|EXPENSE|Food|Restaurant and groceries|02-03-2026
+119|6|32000|INCOME|Salary|Monthly salary credited|03-03-2026
+120|6|1250|EXPENSE|Utilities|Water and electricity bill|07-03-2026
+121|7|40000|INCOME|Salary|Monthly salary credited|05-01-2026
+122|7|10000|EXPENSE|Rent|Monthly apartment rent|07-01-2026
+123|7|3000|EXPENSE|Food|Monthly groceries|10-01-2026
+124|7|1500|EXPENSE|Utilities|Electricity and water bill|14-01-2026
+125|7|2500|EXPENSE|Transport|Fuel expenses|18-01-2026
+126|7|4500|EXPENSE|Shopping|Clothes and footwear|21-01-2026
+127|7|3000|INCOME|Freelance|Online project payment|25-01-2026
+128|7|1200|EXPENSE|Entertainment|Movie and recreation|28-01-2026
+129|7|1600|EXPENSE|Health|Medicine and health expenses|31-01-2026
+130|7|40000|INCOME|Salary|Monthly salary credited|05-02-2026
+131|7|10000|EXPENSE|Rent|Monthly apartment rent|07-02-2026
+132|7|3200|EXPENSE|Food|Groceries and dining|11-02-2026
+133|7|1500|EXPENSE|Utilities|Internet and electricity bill|15-02-2026
+134|7|2300|EXPENSE|Transport|Fuel expenses|18-02-2026
+135|7|4100|EXPENSE|Shopping|Personal items|21-02-2026
+136|7|2800|INCOME|Freelance|Graphic design project|24-02-2026
+137|7|1300|EXPENSE|Entertainment|Weekend outing|27-02-2026
+138|7|2700|EXPENSE|Food|Restaurant expenses|02-03-2026
+139|7|40000|INCOME|Salary|Monthly salary credited|05-03-2026
+140|7|1400|EXPENSE|Utilities|Water and electricity bill|08-03-2026
+141|8|37000|INCOME|Salary|Monthly salary credited|04-01-2026
+142|8|9500|EXPENSE|Rent|Monthly house rent|06-01-2026
+143|8|2900|EXPENSE|Food|Groceries and meals|09-01-2026
+144|8|1350|EXPENSE|Utilities|Electricity bill|12-01-2026
+145|8|2100|EXPENSE|Transport|Transportation expenses|16-01-2026
+146|8|3900|EXPENSE|Shopping|Clothing and essentials|19-01-2026
+147|8|2500|INCOME|Freelance|Writing project payment|23-01-2026
+148|8|1000|EXPENSE|Entertainment|Movies and recreation|26-01-2026
+149|8|1500|EXPENSE|Health|Medical expenses|29-01-2026
+150|8|37000|INCOME|Salary|Monthly salary credited|04-02-2026
+151|8|9500|EXPENSE|Rent|Monthly house rent|06-02-2026
+152|8|2800|EXPENSE|Food|Groceries and meals|10-02-2026
+153|8|1400|EXPENSE|Utilities|Internet bill|13-02-2026
+154|8|2200|EXPENSE|Transport|Fuel and bus fare|17-02-2026
+155|8|3600|EXPENSE|Shopping|Household purchases|20-02-2026
+156|8|3000|INCOME|Freelance|Content writing payment|24-02-2026
+157|8|1100|EXPENSE|Entertainment|Recreation expenses|27-02-2026
+158|8|2500|EXPENSE|Food|Restaurant and groceries|03-03-2026
+159|8|37000|INCOME|Salary|Monthly salary credited|04-03-2026
+160|8|1300|EXPENSE|Utilities|Water and electricity bill|07-03-2026
+161|9|45000|INCOME|Salary|Monthly salary credited|03-01-2026
+162|9|12000|EXPENSE|Rent|Monthly house rent|06-01-2026
+163|9|3400|EXPENSE|Food|Groceries and meals|09-01-2026
+164|9|1800|EXPENSE|Utilities|Electricity and internet|13-01-2026
+165|9|2800|EXPENSE|Transport|Fuel and transportation|17-01-2026
+166|9|5000|EXPENSE|Shopping|Clothing and accessories|21-01-2026
+167|9|3500|INCOME|Freelance|Programming project|24-01-2026
+168|9|1500|EXPENSE|Entertainment|Movies and recreation|27-01-2026
+169|9|2000|EXPENSE|Health|Medical expenses|30-01-2026
+170|9|45000|INCOME|Salary|Monthly salary credited|03-02-2026
+171|9|12000|EXPENSE|Rent|Monthly house rent|06-02-2026
+172|9|3600|EXPENSE|Food|Groceries and dining|10-02-2026
+173|9|1700|EXPENSE|Utilities|Electricity bill|14-02-2026
+174|9|2700|EXPENSE|Transport|Fuel expenses|18-02-2026
+175|9|4800|EXPENSE|Shopping|Electronic items|21-02-2026
+176|9|3200|INCOME|Freelance|Software project payment|24-02-2026
+177|9|1600|EXPENSE|Entertainment|Weekend recreation|27-02-2026
+178|9|3000|EXPENSE|Food|Restaurant expenses|02-03-2026
+179|9|45000|INCOME|Salary|Monthly salary credited|03-03-2026
+180|9|1800|EXPENSE|Utilities|Water and electricity bill|07-03-2026
+181|10|48000|INCOME|Salary|Monthly salary credited|02-01-2026
+182|10|13000|EXPENSE|Rent|Monthly apartment rent|05-01-2026
+183|10|4000|EXPENSE|Food|Groceries and meals|08-01-2026
+184|10|1900|EXPENSE|Utilities|Electricity and internet|12-01-2026
+185|10|2700|EXPENSE|Transport|Fuel and transportation|16-01-2026
+186|10|5500|EXPENSE|Shopping|Clothing and household items|20-01-2026
+187|10|4000|INCOME|Business|Business income|24-01-2026
+188|10|1800|EXPENSE|Entertainment|Movie and dining|27-01-2026
+189|10|2300|EXPENSE|Health|Medical expenses|30-01-2026
+190|10|48000|INCOME|Salary|Monthly salary credited|02-02-2026
+191|10|13000|EXPENSE|Rent|Monthly apartment rent|05-02-2026
+192|10|4200|EXPENSE|Food|Groceries and restaurants|09-02-2026
+193|10|2000|EXPENSE|Utilities|Internet and electricity|13-02-2026
+194|10|3000|EXPENSE|Transport|Fuel expenses|17-02-2026
+195|10|5200|EXPENSE|Shopping|Household shopping|20-02-2026
+196|10|4500|INCOME|Business|Business sales income|24-02-2026
+197|10|1700|EXPENSE|Entertainment|Weekend recreation|27-02-2026
+198|10|3700|EXPENSE|Food|Restaurant and groceries|02-03-2026
+199|10|48000|INCOME|Salary|Monthly salary credited|02-03-2026
+200|10|1850|EXPENSE|Utilities|Water and electricity bill|06-03-2026
+201|11|36000|INCOME|Salary|Monthly salary credited|04-01-2026
+202|11|8500|EXPENSE|Rent|Monthly room rent|06-01-2026
+203|11|2700|EXPENSE|Food|Groceries and meals|09-01-2026
+204|11|1200|EXPENSE|Utilities|Electricity bill|13-01-2026
+205|11|2000|EXPENSE|Transport|Bus and fuel expenses|16-01-2026
+206|11|3800|EXPENSE|Shopping|Clothes and accessories|20-01-2026
+207|11|2200|INCOME|Freelance|Online work payment|23-01-2026
+208|11|1000|EXPENSE|Entertainment|Recreation expenses|26-01-2026
+209|11|1400|EXPENSE|Health|Medical expenses|30-01-2026
+210|11|36000|INCOME|Salary|Monthly salary credited|04-02-2026
+211|11|8500|EXPENSE|Rent|Monthly room rent|06-02-2026
+212|11|2800|EXPENSE|Food|Groceries and meals|10-02-2026
+213|11|1300|EXPENSE|Utilities|Internet and electricity|14-02-2026
+214|11|2100|EXPENSE|Transport|Transportation expenses|17-02-2026
+215|11|3500|EXPENSE|Shopping|Household items|20-02-2026
+216|11|2500|INCOME|Freelance|Online work payment|24-02-2026
+217|11|1100|EXPENSE|Entertainment|Weekend outing|27-02-2026
+218|11|2300|EXPENSE|Food|Restaurant expenses|02-03-2026
+219|11|36000|INCOME|Salary|Monthly salary credited|04-03-2026
+220|11|1250|EXPENSE|Utilities|Water and electricity bill|07-03-2026
+221|12|34000|INCOME|Salary|Monthly salary credited|03-01-2026
+222|12|8000|EXPENSE|Rent|Monthly room rent|06-01-2026
+223|12|2500|EXPENSE|Food|Groceries and meals|09-01-2026
+224|12|1100|EXPENSE|Utilities|Electricity bill|13-01-2026
+225|12|1800|EXPENSE|Transport|Transportation expenses|16-01-2026
+226|12|3600|EXPENSE|Shopping|Clothes and essentials|19-01-2026
+227|12|2000|INCOME|Part-time|Part-time work payment|23-01-2026
+228|12|900|EXPENSE|Entertainment|Movie and recreation|27-01-2026
+229|12|1200|EXPENSE|Health|Medicine expenses|30-01-2026
+230|12|34000|INCOME|Salary|Monthly salary credited|03-02-2026
+231|12|8000|EXPENSE|Rent|Monthly room rent|06-02-2026
+232|12|2600|EXPENSE|Food|Groceries and dining|10-02-2026
+233|12|1150|EXPENSE|Utilities|Internet and electricity|14-02-2026
+234|12|1900|EXPENSE|Transport|Bus and fuel|17-02-2026
+235|12|3300|EXPENSE|Shopping|Household purchases|20-02-2026
+236|12|2300|INCOME|Part-time|Tutoring income|24-02-2026
+237|12|1000|EXPENSE|Entertainment|Weekend recreation|27-02-2026
+238|12|2200|EXPENSE|Food|Restaurant expenses|02-03-2026
+239|12|34000|INCOME|Salary|Monthly salary credited|03-03-2026
+240|12|1200|EXPENSE|Utilities|Water and electricity bill|07-03-2026
+241|13|44000|INCOME|Salary|Monthly salary credited|02-01-2026
+242|13|11000|EXPENSE|Rent|Monthly house rent|05-01-2026
+243|13|3500|EXPENSE|Food|Groceries and meals|08-01-2026
+244|13|1600|EXPENSE|Utilities|Electricity and internet|12-01-2026
+245|13|2500|EXPENSE|Transport|Fuel expenses|16-01-2026
+246|13|4700|EXPENSE|Shopping|Clothes and personal items|20-01-2026
+247|13|3500|INCOME|Freelance|Web development payment|24-01-2026
+248|13|1400|EXPENSE|Entertainment|Movie and recreation|27-01-2026
+249|13|1900|EXPENSE|Health|Medicine and medical expenses|30-01-2026
+250|13|44000|INCOME|Salary|Monthly salary credited|02-02-2026
+251|13|11000|EXPENSE|Rent|Monthly house rent|05-02-2026
+252|13|3600|EXPENSE|Food|Groceries and dining|09-02-2026
+253|13|1700|EXPENSE|Utilities|Internet and electricity|13-02-2026
+254|13|2600|EXPENSE|Transport|Fuel expenses|17-02-2026
+255|13|4300|EXPENSE|Shopping|Household purchases|20-02-2026
+256|13|3000|INCOME|Freelance|Software support payment|24-02-2026
+257|13|1500|EXPENSE|Entertainment|Weekend activities|27-02-2026
+258|13|2800|EXPENSE|Food|Restaurant and groceries|02-03-2026
+259|13|44000|INCOME|Salary|Monthly salary credited|02-03-2026
+260|13|1600|EXPENSE|Utilities|Water and electricity bill|06-03-2026
+261|14|39000|INCOME|Salary|Monthly salary credited|03-01-2026
+262|14|9000|EXPENSE|Rent|Monthly apartment rent|06-01-2026
+263|14|3000|EXPENSE|Food|Groceries and meals|09-01-2026
+264|14|1400|EXPENSE|Utilities|Electricity bill|13-01-2026
+265|14|2300|EXPENSE|Transport|Fuel expenses|16-01-2026
+266|14|4000|EXPENSE|Shopping|Clothes and accessories|20-01-2026
+267|14|2500|INCOME|Freelance|Content creation payment|23-01-2026
+268|14|1200|EXPENSE|Entertainment|Movie and recreation|27-01-2026
+269|14|1600|EXPENSE|Health|Medicine purchase|30-01-2026
+270|14|39000|INCOME|Salary|Monthly salary credited|03-02-2026
+271|14|9000|EXPENSE|Rent|Monthly apartment rent|06-02-2026
+272|14|3100|EXPENSE|Food|Groceries and dining|10-02-2026
+273|14|1450|EXPENSE|Utilities|Internet and electricity|14-02-2026
+274|14|2200|EXPENSE|Transport|Fuel and bus fare|17-02-2026
+275|14|3800|EXPENSE|Shopping|Household purchases|20-02-2026
+276|14|2800|INCOME|Freelance|Online project payment|24-02-2026
+277|14|1100|EXPENSE|Entertainment|Weekend outing|27-02-2026
+278|14|2500|EXPENSE|Food|Restaurant expenses|02-03-2026
+279|14|39000|INCOME|Salary|Monthly salary credited|03-03-2026
+280|14|1350|EXPENSE|Utilities|Water and electricity bill|07-03-2026
+281|15|46000|INCOME|Salary|Monthly salary credited|05-01-2026
+282|15|12500|EXPENSE|Rent|Monthly house rent|07-01-2026
+283|15|3500|EXPENSE|Food|Groceries and meals|10-01-2026
+284|15|1800|EXPENSE|Utilities|Electricity and internet|14-01-2026
+285|15|2500|EXPENSE|Transport|Fuel and local transportation|18-01-2026
+286|15|5000|EXPENSE|Shopping|Clothing and accessories|21-01-2026
+287|15|4500|INCOME|Freelance|Software project payment|25-01-2026
+288|15|1600|EXPENSE|Entertainment|Movie and dining|28-01-2026
+289|15|2200|EXPENSE|Health|Medical expenses|31-01-2026
+290|15|46000|INCOME|Salary|Monthly salary credited|05-02-2026
+291|15|12500|EXPENSE|Rent|Monthly house rent|07-02-2026
+292|15|3700|EXPENSE|Food|Groceries and restaurant|11-02-2026
+293|15|1900|EXPENSE|Utilities|Electricity and internet|15-02-2026
+294|15|2800|EXPENSE|Transport|Fuel expenses|18-02-2026
+295|15|4700|EXPENSE|Shopping|Household shopping|21-02-2026
+296|15|4000|INCOME|Freelance|Backend development payment|24-02-2026
+297|15|1500|EXPENSE|Entertainment|Weekend recreation|27-02-2026
+298|15|3200|EXPENSE|Food|Restaurant and groceries|02-03-2026
+299|15|46000|INCOME|Salary|Monthly salary credited|05-03-2026
+300|15|1800|EXPENSE|Utilities|Water and electricity bill|08-03-2026
+301|16|37000|INCOME|Salary|Monthly salary credited|04-01-2026
+302|16|9000|EXPENSE|Rent|Monthly room rent|06-01-2026
+303|16|2800|EXPENSE|Food|Groceries and meals|09-01-2026
+304|16|1300|EXPENSE|Utilities|Electricity bill|13-01-2026
+305|16|2000|EXPENSE|Transport|Fuel and bus fare|16-01-2026
+306|16|3900|EXPENSE|Shopping|Clothes and essentials|20-01-2026
+307|16|2500|INCOME|Part-time|Tutoring payment|23-01-2026
+308|16|1000|EXPENSE|Entertainment|Movie and recreation|26-01-2026
+309|16|1500|EXPENSE|Health|Medicine expenses|30-01-2026
+310|16|37000|INCOME|Salary|Monthly salary credited|04-02-2026
+311|16|9000|EXPENSE|Rent|Monthly room rent|06-02-2026
+312|16|2900|EXPENSE|Food|Groceries and meals|10-02-2026
+313|16|1400|EXPENSE|Utilities|Internet and electricity|14-02-2026
+314|16|2100|EXPENSE|Transport|Transportation expenses|17-02-2026
+315|16|3600|EXPENSE|Shopping|Household purchases|20-02-2026
+316|16|2700|INCOME|Part-time|Freelance tutoring payment|24-02-2026
+317|16|1100|EXPENSE|Entertainment|Weekend outing|27-02-2026
+318|16|2400|EXPENSE|Food|Restaurant and groceries|02-03-2026
+319|16|37000|INCOME|Salary|Monthly salary credited|04-03-2026
+320|16|1200|EXPENSE|Utilities|Water and electricity bill|07-03-2026
+321|17|52000|INCOME|Salary|Monthly salary credited|02-01-2026
+322|17|15000|EXPENSE|Rent|Monthly apartment rent|05-01-2026
+323|17|4500|EXPENSE|Food|Groceries and meals|08-01-2026
+324|17|2200|EXPENSE|Utilities|Electricity and internet|12-01-2026
+325|17|3200|EXPENSE|Transport|Fuel expenses|16-01-2026
+326|17|6500|EXPENSE|Shopping|Electronics and clothing|20-01-2026
+327|17|5000|INCOME|Freelance|Software consulting payment|24-01-2026
+328|17|2200|EXPENSE|Entertainment|Dining and recreation|27-01-2026
+329|17|2800|EXPENSE|Health|Medical expenses|30-01-2026
+330|17|52000|INCOME|Salary|Monthly salary credited|02-02-2026
+331|17|15000|EXPENSE|Rent|Monthly apartment rent|05-02-2026
+332|17|4600|EXPENSE|Food|Groceries and restaurants|09-02-2026
+333|17|2300|EXPENSE|Utilities|Internet and electricity|13-02-2026
+334|17|3400|EXPENSE|Transport|Fuel and vehicle expenses|17-02-2026
+335|17|6200|EXPENSE|Shopping|Household and electronic items|20-02-2026
+336|17|4500|INCOME|Freelance|Development project payment|24-02-2026
+337|17|2000|EXPENSE|Entertainment|Weekend dining|27-02-2026
+338|17|4200|EXPENSE|Food|Restaurant and groceries|02-03-2026
+339|17|52000|INCOME|Salary|Monthly salary credited|02-03-2026
+340|17|2100|EXPENSE|Utilities|Water and electricity bill|06-03-2026
+341|18|43000|INCOME|Salary|Monthly salary credited|03-01-2026
+342|18|10000|EXPENSE|Rent|Monthly house rent|06-01-2026
+343|18|3200|EXPENSE|Food|Groceries and meals|09-01-2026
+344|18|1600|EXPENSE|Utilities|Electricity and internet|13-01-2026
+345|18|2400|EXPENSE|Transport|Fuel and transportation|17-01-2026
+346|18|4500|EXPENSE|Shopping|Clothing and accessories|20-01-2026
+347|18|3500|INCOME|Freelance|Project payment|24-01-2026
+348|18|1300|EXPENSE|Entertainment|Movies and dining|27-01-2026
+349|18|1800|EXPENSE|Health|Medical expenses|30-01-2026
+350|18|43000|INCOME|Salary|Monthly salary credited|03-02-2026
+351|18|10000|EXPENSE|Rent|Monthly house rent|06-02-2026
+352|18|3400|EXPENSE|Food|Groceries and restaurant|10-02-2026
+353|18|1600|EXPENSE|Utilities|Electricity and internet|14-02-2026
+354|18|2500|EXPENSE|Transport|Fuel expenses|18-02-2026
+355|18|4200|EXPENSE|Shopping|Household purchases|21-02-2026
+356|18|3000|INCOME|Freelance|Online project payment|24-02-2026
+357|18|1400|EXPENSE|Entertainment|Weekend outing|27-02-2026
+358|18|2800|EXPENSE|Food|Restaurant and groceries|02-03-2026
+359|18|43000|INCOME|Salary|Monthly salary credited|03-03-2026
+360|18|1500|EXPENSE|Utilities|Water and electricity bill|07-03-2026
+361|19|40000|INCOME|Salary|Monthly salary credited|04-01-2026
+362|19|9500|EXPENSE|Rent|Monthly room rent|07-01-2026
+363|19|3000|EXPENSE|Food|Groceries and meals|10-01-2026
+364|19|1400|EXPENSE|Utilities|Electricity bill|14-01-2026
+365|19|2200|EXPENSE|Transport|Fuel and bus fare|17-01-2026
+366|19|4200|EXPENSE|Shopping|Clothes and essentials|21-01-2026
+367|19|2800|INCOME|Freelance|Online work payment|24-01-2026
+368|19|1100|EXPENSE|Entertainment|Movie and recreation|27-01-2026
+369|19|1600|EXPENSE|Health|Medicine expenses|30-01-2026
+370|19|40000|INCOME|Salary|Monthly salary credited|04-02-2026
+371|19|9500|EXPENSE|Rent|Monthly room rent|07-02-2026
+372|19|3100|EXPENSE|Food|Groceries and meals|11-02-2026
+373|19|1500|EXPENSE|Utilities|Internet and electricity|15-02-2026
+374|19|2300|EXPENSE|Transport|Fuel expenses|18-02-2026
+375|19|3900|EXPENSE|Shopping|Household items|21-02-2026
+376|19|3000|INCOME|Freelance|Online project payment|24-02-2026
+377|19|1200|EXPENSE|Entertainment|Weekend recreation|27-02-2026
+378|19|2600|EXPENSE|Food|Restaurant and groceries|03-03-2026
+379|19|40000|INCOME|Salary|Monthly salary credited|04-03-2026
+380|19|1350|EXPENSE|Utilities|Water and electricity bill|07-03-2026
+381|20|55000|INCOME|Salary|Monthly salary credited|02-01-2026
+382|20|14000|EXPENSE|Rent|Monthly house rent|05-01-2026
+383|20|4500|EXPENSE|Food|Groceries and meals|08-01-2026
+384|20|2100|EXPENSE|Utilities|Electricity and internet|12-01-2026
+385|20|3000|EXPENSE|Transport|Fuel and transportation|16-01-2026
+386|20|6000|EXPENSE|Shopping|Clothing and household items|20-01-2026
+387|20|5000|INCOME|Business|Small business income|24-01-2026
+388|20|2000|EXPENSE|Entertainment|Dining and recreation|27-01-2026
+389|20|2500|EXPENSE|Health|Medical expenses|30-01-2026
+390|20|55000|INCOME|Salary|Monthly salary credited|02-02-2026
+391|20|14000|EXPENSE|Rent|Monthly house rent|05-02-2026
+392|20|4700|EXPENSE|Food|Groceries and dining|09-02-2026
+393|20|2200|EXPENSE|Utilities|Electricity and internet|13-02-2026
+394|20|3200|EXPENSE|Transport|Fuel and vehicle expenses|17-02-2026
+395|20|5800|EXPENSE|Shopping|Household and electronic items|20-02-2026
+396|20|4500|INCOME|Business|Business sales income|24-02-2026
+397|20|1900|EXPENSE|Entertainment|Weekend family outing|27-02-2026
+398|20|4000|EXPENSE|Food|Restaurant and groceries|02-03-2026
+399|20|55000|INCOME|Salary|Monthly salary credited|02-03-2026
+400|20|2000|EXPENSE|Utilities|Water and electricity bill|06-03-2026
