@@ -1,82 +1,57 @@
-Personal Finance Manager (CLI)
-Overview
+# Finance Manager
 
-This project is a Command Line Interface (CLI) Personal Finance Manager built in C++ using Object-Oriented Programming (OOP) principles.
+A CLI-based Personal Finance Management System built using C++ and Object-Oriented Programming
 
-Class Responsibilities
+Finance Manager allows users to securely create accounts, log in, manage their income and expenses, delete transactions, and view useful financial statistics all through a simple command-line interface.
 
-1. User
 
-   Purpose
-   Represents one registered user.
 
-   A User object only stores information about a user.
+✨ Features
 
-   It does not perform login, file handling, or finance calculations.
+ 🔐 Authentication
+- User Sign Up
+- User Login
+- Username validation
+- Password validation
+- Strong password requirements
+- Strong password generator
+- User data stored locally
 
-   Stores
-   User ID
-   Username
-   Password
-   Example
-   User
-   {
-   id = 1
-   username = "prasanna"
-   passwordHash = "89ad72..."
-   }
-   Common Functions
-   getID()
+💸 Transaction Management
+- Add income and expenses
+- Add transaction descriptions
+- Store transaction dates
+- Unique transaction IDs
+- Delete transactions
+- User-specific transaction management
 
-   getUsername()
+📊 Statistics
+- Analyze financial transactions
+- View income and expense statistics
+- Calculate useful financial summaries
 
-   getPassword()
+ 💾 File Handling
+The project uses text files for persistent data storage.
 
-   setUsername()
+- `Users.txt` → Stores user information
+- `Trans.txt` → Stores transaction information
 
-   setPassword()
+---
 
-2. UserManager
-   Purpose
+## 🛠️ Technologies Used
 
-   Manages all users in the application.
-
-   (All file handling Operations)
-
-   Responsibilities
-   Load users from file
-   Save users to file
-   Add new users
-   Find users
-   Check whether a username already exists
-
-   Functions
-   loadUsers()
-
-   saveUsers()
-
-   addUser()
-
-   findUser()
-
-   usernameExists()
-
-3. AuthSystem
-   Purpose
-
-   Responsible for authentication whether the username exists already and if not it creates a new user.
-
-   Responsibilities
-   Login
-   Sign Up
-   Logout
-   Track the currently logged-in user
-
-   Functions
-   login()
-
-   signup()
-
-   logout()
-
-   getCurrentUser()
+- **C++**
+- **Object-Oriented Programming (OOP)**
+- **File Handling**
+- **Exception Handling**
+- **Command Line Interface (CLI)**
+  
+🚀 Getting Started
+1. Clone the Repository
+git clone https://github.com/PrasannaPradhan1025/Personal-Finance-Management-System.git
+2.Move into the project directory:
+cd Personal-Finance-Management-System
+3.Compile this program
+g++ *.cpp -o finance.exe
+4.Run the program
+.\finance.exe
